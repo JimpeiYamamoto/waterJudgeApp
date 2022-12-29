@@ -25,6 +25,23 @@ struct TopView: View {
                 )
                 .padding()
                 
+                Best3View(
+                    title: "都道府県別ランキング",
+                    rank1Model: RankCellModel(rank: 1, name: "東京都", score: 4.75),
+                    rank2Model: RankCellModel(rank: 2, name: "神奈川県", score: 4.43),
+                    rank3Model: RankCellModel(rank: 3, name: "大阪府", score: 2.32)
+                )
+                .padding()
+                
+                Best3View(
+                    title: "全国市区町村ランキング",
+                    rank1Model: RankCellModel(rank: 1, name: "川崎市", score: 4.75),
+                    rank2Model: RankCellModel(rank: 2, name: "八王子市", score: 4.43),
+                    rank3Model: RankCellModel(rank: 3, name: "文京区", score: 2.32)
+                )
+                .padding()
+                
+                
             }
             .navigationTitle("2022-12/29")
             .navigationBarItems(trailing:Button(action: {
@@ -47,6 +64,16 @@ struct UserAreaInfoView: View {
                 Image(systemName: "person")
                 Text("変な臭いもせずとても気分がよかったです")
                 Text("4.7")
+            }
+            HStack {
+                Image(systemName: "person")
+                Text("超美味しい！")
+                Text("5.0")
+            }
+            HStack {
+                Image(systemName: "person")
+                Text("とてもじゃないが人間が飲むもんじゃないね")
+                Text("1.0")
             }
             
         }
@@ -74,17 +101,34 @@ struct Best3View: View {
                 Text("\(rank1Model.rank)")
                 Text("\(rank1Model.name)")
                 Text("\(rank1Model.score)")
+                Button {
+                    
+                } label: {
+                    Image(systemName: "ellipsis.message.fill")
+                }
             }
             HStack {
                 Text("\(rank2Model.rank)")
                 Text("\(rank2Model.name)")
                 Text("\(rank2Model.score)")
+                Button {
+                    
+                } label: {
+                    Image(systemName: "ellipsis.message.fill")
+                }
             }
             HStack {
-                Text("\(rank2Model.rank)")
-                Text("\(rank2Model.name)")
-                Text("\(rank2Model.score)")
+                Text("\(rank3Model.rank)")
+                Text("\(rank3Model.name)")
+                Text("\(rank3Model.score)")
+                Button {
+                    
+                } label: {
+                    Image(systemName: "ellipsis.message.fill")
+                }
             }
+            
+
         }
     }
 }
