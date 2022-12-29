@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		73043928295DD4AB005BE71D /* waterJudgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043927295DD4AB005BE71D /* waterJudgeApp.swift */; };
-		7304392A295DD4AB005BE71D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043929295DD4AB005BE71D /* ContentView.swift */; };
+		7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043929295DD4AB005BE71D /* MainTabView.swift */; };
 		7304392C295DD4AD005BE71D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7304392B295DD4AD005BE71D /* Assets.xcassets */; };
 		7304392F295DD4AD005BE71D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7304392E295DD4AD005BE71D /* Preview Assets.xcassets */; };
 		73043939295DD4AE005BE71D /* waterJudgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043938295DD4AE005BE71D /* waterJudgeTests.swift */; };
 		73043943295DD4AE005BE71D /* waterJudgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043942295DD4AE005BE71D /* waterJudgeUITests.swift */; };
 		73043945295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */; };
+		73043952295DD9CF005BE71D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043951295DD9CF005BE71D /* TopView.swift */; };
+		73043954295DD9E9005BE71D /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043953295DD9E9005BE71D /* VoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		73043924295DD4AB005BE71D /* waterJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73043927295DD4AB005BE71D /* waterJudgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterJudgeApp.swift; sourceTree = "<group>"; };
-		73043929295DD4AB005BE71D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		73043929295DD4AB005BE71D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		7304392B295DD4AD005BE71D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7304392E295DD4AD005BE71D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		73043934295DD4AE005BE71D /* waterJudgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waterJudgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,8 @@
 		7304393E295DD4AE005BE71D /* waterJudgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waterJudgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73043942295DD4AE005BE71D /* waterJudgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterJudgeUITests.swift; sourceTree = "<group>"; };
 		73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterJudgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		73043951295DD9CF005BE71D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		73043953295DD9E9005BE71D /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				73043927295DD4AB005BE71D /* waterJudgeApp.swift */,
-				73043929295DD4AB005BE71D /* ContentView.swift */,
+				73043929295DD4AB005BE71D /* MainTabView.swift */,
+				73043951295DD9CF005BE71D /* TopView.swift */,
+				73043953295DD9E9005BE71D /* VoteView.swift */,
 				7304392B295DD4AD005BE71D /* Assets.xcassets */,
 				7304392D295DD4AD005BE71D /* Preview Content */,
 			);
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7304392A295DD4AB005BE71D /* ContentView.swift in Sources */,
+				7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */,
+				73043952295DD9CF005BE71D /* TopView.swift in Sources */,
+				73043954295DD9E9005BE71D /* VoteView.swift in Sources */,
 				73043928295DD4AB005BE71D /* waterJudgeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
