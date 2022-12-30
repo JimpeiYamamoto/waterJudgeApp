@@ -23,14 +23,15 @@ struct VoteView: View {
                 if isDoneVote {
                     WaitView()
                 } else {
-                    YetVoteView()
+                    YetVoteView(isDoneVote: $isDoneVote)
                 }
 
             }
             .navigationTitle("2022-12/29")
-            .navigationBarItems(trailing:Button(action: {
-            }, label: {
-                Image(systemName: "person.circle.fill")
+            .navigationBarItems(trailing:Button(action: {}, label: {
+                NavigationLink(destination: EditUserInfoView()) {
+                    Image(systemName: "person.circle.fill")
+                }
             }))
         }
     }
@@ -54,6 +55,7 @@ struct WaitView: View {
 struct YetVoteView: View {
     
     @State var inputComment: String = ""
+    @Binding var isDoneVote: Bool
     
     var body: some View {
         Text("本日の投票")
@@ -72,7 +74,7 @@ struct YetVoteView: View {
             .frame(height: 200)
         
         Button {
-            
+            isDoneVote.toggle()
         } label: {
             Text("送信")
         }

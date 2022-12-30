@@ -16,6 +16,13 @@
 		73043945295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */; };
 		73043952295DD9CF005BE71D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043951295DD9CF005BE71D /* TopView.swift */; };
 		73043954295DD9E9005BE71D /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043953295DD9E9005BE71D /* VoteView.swift */; };
+		73043956295EB1FE005BE71D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043955295EB1FE005BE71D /* CommentListView.swift */; };
+		73043959295EB25A005BE71D /* RankCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043958295EB25A005BE71D /* RankCellModel.swift */; };
+		7304395C295EB3F4005BE71D /* RankCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395B295EB3F4005BE71D /* RankCellView.swift */; };
+		7304395E295EB650005BE71D /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395D295EB650005BE71D /* CommentCellView.swift */; };
+		73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */; };
+		73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043961295EBBD6005BE71D /* EditUserInfoView.swift */; };
+		73043964295EBD40005BE71D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043963295EBD40005BE71D /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,13 @@
 		73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterJudgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		73043951295DD9CF005BE71D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		73043953295DD9E9005BE71D /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		73043955295EB1FE005BE71D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
+		73043958295EB25A005BE71D /* RankCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellModel.swift; sourceTree = "<group>"; };
+		7304395B295EB3F4005BE71D /* RankCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellView.swift; sourceTree = "<group>"; };
+		7304395D295EB650005BE71D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
+		7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellModelswift.swift; sourceTree = "<group>"; };
+		73043961295EBBD6005BE71D /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
+		73043963295EBD40005BE71D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +113,13 @@
 			isa = PBXGroup;
 			children = (
 				73043927295DD4AB005BE71D /* waterJudgeApp.swift */,
+				73043957295EB249005BE71D /* Model */,
+				7304395A295EB3C6005BE71D /* UI */,
 				73043929295DD4AB005BE71D /* MainTabView.swift */,
 				73043951295DD9CF005BE71D /* TopView.swift */,
+				73043961295EBBD6005BE71D /* EditUserInfoView.swift */,
 				73043953295DD9E9005BE71D /* VoteView.swift */,
+				73043955295EB1FE005BE71D /* CommentListView.swift */,
 				7304392B295DD4AD005BE71D /* Assets.xcassets */,
 				7304392D295DD4AD005BE71D /* Preview Content */,
 			);
@@ -131,6 +149,25 @@
 				73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */,
 			);
 			path = waterJudgeUITests;
+			sourceTree = "<group>";
+		};
+		73043957295EB249005BE71D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73043958295EB25A005BE71D /* RankCellModel.swift */,
+				7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */,
+				73043963295EBD40005BE71D /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7304395A295EB3C6005BE71D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7304395B295EB3F4005BE71D /* RankCellView.swift */,
+				7304395D295EB650005BE71D /* CommentCellView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,9 +301,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */,
+				73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */,
+				73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */,
+				73043956295EB1FE005BE71D /* CommentListView.swift in Sources */,
 				73043952295DD9CF005BE71D /* TopView.swift in Sources */,
 				73043954295DD9E9005BE71D /* VoteView.swift in Sources */,
+				7304395C295EB3F4005BE71D /* RankCellView.swift in Sources */,
 				73043928295DD4AB005BE71D /* waterJudgeApp.swift in Sources */,
+				7304395E295EB650005BE71D /* CommentCellView.swift in Sources */,
+				73043959295EB25A005BE71D /* RankCellModel.swift in Sources */,
+				73043964295EBD40005BE71D /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

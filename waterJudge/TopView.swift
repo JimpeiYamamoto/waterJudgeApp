@@ -40,13 +40,16 @@ struct TopView: View {
                     rank3Model: RankCellModel(rank: 3, name: "文京区", score: 2.32)
                 )
                 .padding()
-                
-                
             }
             .navigationTitle("2022-12/29")
             .navigationBarItems(trailing:Button(action: {
             }, label: {
-                Image(systemName: "person.circle.fill")
+                NavigationLink {
+                    EditUserInfoView()
+                } label: {
+                    Image(systemName: "person.circle.fill")
+                }
+
             }))
         }
     }
@@ -60,30 +63,12 @@ struct UserAreaInfoView: View {
             Text("スコア: 3.87")
             Text("18 / 47 位")
             Text("最新のコメント")
-            HStack {
-                Image(systemName: "person")
-                Text("変な臭いもせずとても気分がよかったです")
-                Text("4.7")
-            }
-            HStack {
-                Image(systemName: "person")
-                Text("超美味しい！")
-                Text("5.0")
-            }
-            HStack {
-                Image(systemName: "person")
-                Text("とてもじゃないが人間が飲むもんじゃないね")
-                Text("1.0")
-            }
+            CommentCellView(comment: "超美味しい", score: 5.0)
+            CommentCellView(comment: "カルキ臭がしますね", score: 2.5)
+            CommentCellView(comment: "うげぇぇぇ", score: 1.8)
             
         }
     }
-}
-
-struct RankCellModel {
-    let rank: Int
-    let name: String
-    let score: Double
 }
 
 struct Best3View: View {
@@ -96,39 +81,9 @@ struct Best3View: View {
     var body: some View {
         VStack {
             Text(title)
-            
-            HStack {
-                Text("\(rank1Model.rank)")
-                Text("\(rank1Model.name)")
-                Text("\(rank1Model.score)")
-                Button {
-                    
-                } label: {
-                    Image(systemName: "ellipsis.message.fill")
-                }
-            }
-            HStack {
-                Text("\(rank2Model.rank)")
-                Text("\(rank2Model.name)")
-                Text("\(rank2Model.score)")
-                Button {
-                    
-                } label: {
-                    Image(systemName: "ellipsis.message.fill")
-                }
-            }
-            HStack {
-                Text("\(rank3Model.rank)")
-                Text("\(rank3Model.name)")
-                Text("\(rank3Model.score)")
-                Button {
-                    
-                } label: {
-                    Image(systemName: "ellipsis.message.fill")
-                }
-            }
-            
-
+            RankCellView(rankModel: rank1Model)
+            RankCellView(rankModel: rank2Model)
+            RankCellView(rankModel: rank3Model)
         }
     }
 }
