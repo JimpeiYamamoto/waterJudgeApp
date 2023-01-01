@@ -9,13 +9,24 @@ import SwiftUI
 
 struct RankCellView: View {
     
-    var rankModel: RankCellModel
+    let rankModel: RankCellModel
+    
+    init(rankModel: RankCellModel) {
+        self.rankModel = rankModel
+    }
     
     var body: some View {
         HStack {
-            Text("\(rankModel.rank)")
+            Text("\(rankModel.rank).")
+                .font(.title2)
+                .foregroundColor(.white)
             Text("\(rankModel.name)")
-            Text("\(rankModel.score)")
+                .foregroundColor(.white)
+                .font(.title2)
+            Spacer()
+            Text("\(String(round(rankModel.score * 100) / 100))")
+                .foregroundColor(.white)
+                .font(.title2)
             Button {
             } label: {
                 NavigationLink(
@@ -25,6 +36,12 @@ struct RankCellView: View {
                     })
             }
         }
+        .padding()
+        .background(
+            Rectangle()
+                .cornerRadius(20)
+                .foregroundColor(.mint)
+        )
     }
 }
 

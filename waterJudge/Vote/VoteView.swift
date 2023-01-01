@@ -9,14 +9,22 @@ import SwiftUI
 
 struct VoteView: View {
     
+    private var user: UserModel
     @State var isDoneVote: Bool = false
+    
+    init() {
+        // TODO: UserDefaultから読み込む
+        self.user = UserModel(
+            userName: "hogeuser", prefectures: "神奈川県", municipalities: "川崎市"
+        )
+    }
     
     var body: some View {
         NavigationView{
-            ScrollView {
+            VStack {
                 HStack {
                     Text("居住地:")
-                    Text("神奈川県 川崎市")
+                    Text("\(user.prefectures) \(user.municipalities)")
                 }
                 .padding()
                 
@@ -74,7 +82,7 @@ struct YetVoteView: View {
             .frame(height: 200)
         
         Button {
-            isDoneVote.toggle()
+            //isDoneVote.toggle()
         } label: {
             Text("送信")
         }

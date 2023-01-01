@@ -9,26 +9,46 @@ import SwiftUI
 
 struct CommentCellView: View {
     
-    let comment: String
-    let score: String
-    
-    init(comment: String, score: Double) {
-        self.comment = comment
-        self.score = String(round(score * 100) / 100)
-    }
-    
+    let commentModel: CommentCellModel
     
     var body: some View {
-        HStack {
-            Image(systemName: "person")
-            Text(comment)
-            Text(score)
+        
+        VStack(alignment: .leading) {
+            
+            HStack() {
+                Image(systemName: "person")
+                    .foregroundColor(.white)
+                Text(commentModel.userName)
+                    .underline()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                Spacer()
+                Text(String(round(commentModel.score * 100) / 100))
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+            
+            HStack {
+                Text(commentModel.comment)
+                    .font(.headline)
+                    .frame(maxWidth: UIScreen.main.bounds.width / 20 * 18)
+                    .foregroundColor(.white)
+            }
+            
         }
+        .padding()
+        .background(
+            Rectangle()
+                .foregroundColor(.green)
+                .cornerRadius(20)
+        )
     }
 }
 
 struct CommentCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentCellView(comment: "げぼおお", score: 2.98000)
+        CommentCellView(commentModel: CommentCellModel(
+            userName: "jimpei", comment: "おいしいね", score: 2.2)
+        )
     }
 }

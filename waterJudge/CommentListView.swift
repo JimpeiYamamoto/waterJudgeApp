@@ -32,7 +32,7 @@ struct CommentListView: View {
     var body: some View {
         ScrollView {
             ForEach(commentCellModels, id: \.self.userName) { model in
-                CommentCellView(comment: model.comment, score: model.score)
+                CommentCellView(commentModel: model)
             }
         }
         .navigationTitle("\(rankModel.name)")
