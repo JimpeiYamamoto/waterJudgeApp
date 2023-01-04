@@ -15,9 +15,14 @@ struct UserAreaInfoView: View {
     
     init() {
         // TODO: UserDefaultからロードする
-        self.userModel = UserModel(
-            userName: "hogeUser", prefectures: "神奈川県", municipalities: "川崎市"
-        )
+        if let user = fetchUser() {
+            self.userModel = user
+        } else {
+            self.userModel = UserModel(
+                userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
+            )
+        }
+        
         self.rankModel = RankCellModel(
             rank: 18, name: "神奈川県", score: 4.4)
         
@@ -53,7 +58,7 @@ struct UserAreaInfoView: View {
                     Text("あなたの県: ")
                         .font(.headline)
                         .foregroundColor(.white)
-                    Text("\(userModel.prefectures)")
+                    Text("\(userModel.preName)")
                         .underline()
                         .font(.largeTitle)
                         .foregroundColor(.white)
