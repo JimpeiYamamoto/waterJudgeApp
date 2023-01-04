@@ -11,6 +11,7 @@ struct VoteView: View {
     
     private var user: UserModel
     @State var isDoneVote: Bool = false
+    @State var score:Double = 1.0
     
     init() {
         // TODO: UserDefaultから読み込む
@@ -21,17 +22,23 @@ struct VoteView: View {
     
     var body: some View {
         NavigationView{
-            VStack {
+            ScrollView {
                 HStack {
-                    Text("居住地:")
+                    Text("居住地: ")
+                        .font(.title2)
+                        .frame(alignment: .leading)
+                    
                     Text("\(user.prefectures) \(user.municipalities)")
+                        .underline()
+                        .font(.title2)
                 }
                 .padding()
+                .frame(width: UIScreen.main.bounds.width, alignment: .leading)
                 
                 if isDoneVote {
                     WaitView()
                 } else {
-                    YetVoteView(isDoneVote: $isDoneVote)
+                    YetVoteView(isDoneVote: $isDoneVote, score: $score)
                 }
 
             }
@@ -64,49 +71,109 @@ struct YetVoteView: View {
     
     @State var inputComment: String = ""
     @Binding var isDoneVote: Bool
+    @Binding var score: Double
     
     var body: some View {
-        Text("本日の投票")
-        VoteSliderView(title: "味")
-        VoteSliderView(title: "透明度")
-        VoteSliderView(title: "におい")
-        HStack {
-            Text("総合")
-            Text("2.56")
+        VStack {
+            Text("本日の投票")
+                .font(.title2)
+                .underline()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
+                .padding(.top)
+            VoteSliderView(title: "味", maxLabel: "無", minLabel: "有")
+                .padding(.leading)
+                .padding(.trailing)
+            VoteSliderView(title: "におい", maxLabel: "無", minLabel: "有")
+                .padding(.leading)
+                .padding(.trailing)
+            VoteSliderView(title: "色", maxLabel: "無", minLabel: "有")
+                .padding(.leading)
+                .padding(.trailing)
+            
+            Text("スコア: \(String(score))")
+                .font(.title2)
+                .underline()
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing)
+                .padding(.bottom)
         }
+        .background(
+            Rectangle()
+                .foregroundColor(.mint)
+                .cornerRadius(10)
+        )
+        .padding(.leading)
+        .padding(.trailing)
         
         Text("コメント")
+            .font(.title2)
+            .frame(width: UIScreen.main.bounds.width, alignment: .leading)
+            .padding(.leading)
+            .underline()
+        
         TextEditor(text: $inputComment)
             .colorMultiply(.gray.opacity(0.5))
-            .frame(width: 200)
-            .frame(height: 200)
+            .frame(width: UIScreen.main.bounds.width / 20 * 19)
+            .frame(height: UIScreen.main.bounds.height / 8)
         
         Button {
             //isDoneVote.toggle()
+            UIApplication.shared.sendAction(
+                #selector(UIResponder.resignFirstResponder),
+                to: nil,
+                from: nil,
+                for: nil
+            )
         } label: {
             Text("送信")
+                .bold()
+                .foregroundColor(.gray)
+                .padding()
+                .padding(.horizontal, UIScreen.main.bounds.width / 3)
+                .background(
+                    Capsule()
+                        .stroke(Color.gray, lineWidth: 2.0)
+                )
         }
+        .padding()
     }
 }
 
 
 struct VoteSliderView: View {
     
-    var title: String
-    @State var value: Double = 0
+    let title: String
+    let maxLabel: String
+    let minLabel: String
+    
+    @State var value: Double = 1
     
     var body: some View {
         HStack {
-            Text(title)
+            HStack{
+                Text("\(title): ")
+                    .font(.headline)
+                Text("\(Int(value))")
+                    .font(.headline)
+            }
+            .frame(width: UIScreen.main.bounds.width / 5, alignment: .trailing)
             Slider(
                 value: $value,
                 in: 1...5,
                 step: 1.0,
-                minimumValueLabel: Text("1"),
-                maximumValueLabel: Text("5"),
+                minimumValueLabel: {
+                    Text(maxLabel)
+                        .font(.headline)
+                }(),
+                maximumValueLabel: {
+                    Text(minLabel)
+                        .font(.headline)
+                }(),
                 label: {EmptyView()}
             )
-            Text("\(Int(value))")
+            .padding(.leading)
+            .padding(.trailing)
         }
     }
 }

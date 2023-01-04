@@ -12,6 +12,10 @@ struct EditUserInfoView: View {
     var userModel: UserModel
     @Environment(\.presentationMode) var presentationMode
     
+    @State var userNameInput: String = ""
+    @State var userPrefectureInput: String = ""
+    @State var userMunicipality: String = ""
+    
     init() {
         // UserDefaultで撮ってくるように変更したい
         self.userModel = UserModel(
@@ -22,17 +26,78 @@ struct EditUserInfoView: View {
     var body: some View {
         VStack {
             Image(systemName: "person.circle")
-            Text(userModel.userName)
-            Text(userModel.prefectures)
-            Text(userModel.municipalities)
-            
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("保存")
+                .font(.largeTitle)
+                .padding()
+            List {
+                UserNameRow(input: $userNameInput)
+                UserPrefectureRow(input: $userPrefectureInput)
+                UserMunicipality(input: $userMunicipality)
             }
-
+            .listStyle(.plain)
+            .onAppear {
+                userNameInput = userModel.userName
+                userPrefectureInput = userModel.prefectures
+                userMunicipality = userModel.municipalities
+            }
         }
+        .navigationTitle("プロフィールを編集")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            Text("完了")
+        }))
+    }
+}
+
+struct UserNameRow: View {
+    
+    @Binding var input: String
+    
+    var body: some View {
+        HStack {
+            Text("ユーザーネーム")
+                .frame(
+                    width: UIScreen.main.bounds.width / 5,
+                    alignment: .leading
+                )
+            TextField("", text: $input)
+                .submitLabel(.done)
+        }
+    }
+}
+
+struct UserPrefectureRow: View {
+    
+    @Binding var input: String
+    
+    var body: some View {
+        HStack {
+            Text("都道府県")
+                .frame(
+                    width: UIScreen.main.bounds.width / 5,
+                    alignment: .leading
+                )
+            Text(input)
+        }
+    }
+}
+
+struct UserMunicipality: View {
+    
+    @Binding var input: String
+    
+    var body: some View {
+        
+        HStack {
+            Text("市区")
+                .frame(
+                    width: UIScreen.main.bounds.width / 5,
+                    alignment: .leading
+                )
+            Text(input)
+        }
+        
     }
 }
 

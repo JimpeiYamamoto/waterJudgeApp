@@ -25,6 +25,8 @@
 		73043964295EBD40005BE71D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043963295EBD40005BE71D /* UserModel.swift */; };
 		7304396729606302005BE71D /* UserAreaInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304396629606302005BE71D /* UserAreaInfoView.swift */; };
 		730439692961C6AF005BE71D /* Best3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730439682961C6AE005BE71D /* Best3View.swift */; };
+		7304396C29647C79005BE71D /* prefecture.json in Resources */ = {isa = PBXBuildFile; fileRef = 7304396B29647C79005BE71D /* prefecture.json */; };
+		7304396E29652574005BE71D /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304396D29652574005BE71D /* Prefecture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		73043963295EBD40005BE71D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7304396629606302005BE71D /* UserAreaInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAreaInfoView.swift; sourceTree = "<group>"; };
 		730439682961C6AE005BE71D /* Best3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Best3View.swift; sourceTree = "<group>"; };
+		7304396B29647C79005BE71D /* prefecture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prefecture.json; sourceTree = "<group>"; };
+		7304396D29652574005BE71D /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		73043926295DD4AB005BE71D /* waterJudge */ = {
 			isa = PBXGroup;
 			children = (
+				7304396B29647C79005BE71D /* prefecture.json */,
 				73043927295DD4AB005BE71D /* waterJudgeApp.swift */,
 				73043957295EB249005BE71D /* Model */,
 				7304395A295EB3C6005BE71D /* UI */,
@@ -161,6 +166,7 @@
 				73043958295EB25A005BE71D /* RankCellModel.swift */,
 				7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */,
 				73043963295EBD40005BE71D /* UserModel.swift */,
+				7304396D29652574005BE71D /* Prefecture.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7304392F295DD4AD005BE71D /* Preview Assets.xcassets in Resources */,
+				7304396C29647C79005BE71D /* prefecture.json in Resources */,
 				7304392C295DD4AD005BE71D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7304396E29652574005BE71D /* Prefecture.swift in Sources */,
 				7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */,
 				73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */,
 				73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */,
