@@ -18,15 +18,15 @@ struct RankCellView: View {
     var body: some View {
         HStack {
             Text("\(rankModel.rank).")
-                .font(.title2)
+                .font(.headline)
                 .foregroundColor(.white)
             Text("\(rankModel.name)")
                 .foregroundColor(.white)
-                .font(.title2)
+                .font(.headline)
             Spacer()
             Text("\(String(round(rankModel.score * 100) / 100))")
                 .foregroundColor(.white)
-                .font(.title2)
+                .font(.headline)
             Button {
             } label: {
                 NavigationLink(
@@ -36,12 +36,6 @@ struct RankCellView: View {
                     })
             }
         }
-        .padding()
-        .background(
-            Rectangle()
-                .cornerRadius(20)
-                .foregroundColor(.mint)
-        )
     }
 }
 

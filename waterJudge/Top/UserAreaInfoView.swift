@@ -9,112 +9,52 @@ import SwiftUI
 
 struct UserAreaInfoView: View {
     
-    @State var userModel: UserModel
-    @State var rankModel: RankCellModel
-    @State var comments: [CommentCellModel]
+    let userModel: UserModel
+    let rankModel: RankCellModel
+    let comments: [CommentCellModel]
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(.orange)
-                .frame(maxWidth: UIScreen.main.bounds.width / 20 * 19)
-                .frame(height: 550)
-                .cornerRadius(30)
-            
+        HStack(alignment: .top) {
             VStack {
-                HStack{
-                    Text("あなたの県: ")
-                        .font(.headline)
-                        .foregroundColor(.white)
+                VStack(alignment: .leading){
                     Text("\(userModel.preName)")
-                        .underline()
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                }
-                    .frame(
-                        maxWidth: UIScreen.main.bounds.width / 5 * 4,
-                        alignment: .leading
-                    )
-                
-                ZStack {
-                    Rectangle()
-                        .frame(maxWidth: UIScreen.main.bounds.width / 20 * 17)
-                        .frame(height: 120)
-                        .foregroundColor(.red)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
-                    VStack {
-                        HStack {
-                            Text("スコア: ")
-                                .foregroundColor(.white)
-                            Text("\(rankModel.score)")
-                                .font(.title)
-                                .underline()
-                                .foregroundColor(.white)
-                        }
-                            .frame(
-                                maxWidth: UIScreen.main.bounds.width / 5 * 4,
-                                alignment: .center
-                            )
-                        
-                        Text("18 / 47 位")
-                            .foregroundColor(.white)
+                        .font(.headline)
+                        .padding(.bottom, 5)
+                    VStack{
+                        Text("スコア: \(String(rankModel.score))")
                             .font(.title2)
-                            .frame(
-                                maxWidth: UIScreen.main.bounds.width / 5 * 4,
-                                alignment: .center
-                            )
-                            .padding()
+                            .padding(.top, 10)
+                        Text("\(rankModel.rank) / 47")
+                            .font(.title3)
+                            .padding(.bottom, 10)
                     }
-                }
-                .onAppear {
-                    if let user = fetchUser() {
-                        self.userModel = user
-                    } else {
-                        self.userModel = UserModel(
-                            userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
-                        )
-                    }
-                    self.rankModel = RankCellModel(
-                        rank: 18, name: "神奈川県", score: 4.4
-                    )
-                }
-                
-                VStack {
-                    Text("最新のコメント")
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .underline()
-                        .frame(
-                            maxWidth: UIScreen.main.bounds.width / 5 * 4,
-                            alignment: .leading
-                        )
-                        .padding()
-                    ForEach(comments, id: \.self.userName) { comment in
-                        CommentCellView(commentModel: comment)
-                            .frame(maxWidth: UIScreen.main.bounds.width / 5 * 4)
-                    }
-                }
-                .onAppear {
-                    self.comments = []
-                    self.comments.append(
-                        CommentCellModel(
-                            userName: "hoge1", comment: "美味しいね", score: 2.2
-                        )
-                    )
-                    self.comments.append(
-                        CommentCellModel(
-                            userName: "hoge2", comment: "まず...", score: 4.2
-                        )
-                    )
-                    self.comments.append(
-                        CommentCellModel(
-                            userName: "hoge3", comment: "げぼおおお", score: 3.2
-                        )
+                    .frame(maxWidth: UIScreen.main.bounds.width / 2)
+                    .background(
+                        Rectangle()
+                            .foregroundColor(.brown)
+                            .cornerRadius(10)
                     )
                 }
             }
+            .frame(maxWidth: UIScreen.main.bounds.width / 2)
+            
+            VStack(alignment: .leading) {
+                Text("最新コメント")
+                    .font(.headline)
+                ForEach(comments, id: \.self.user.userName) { comment in
+                    CommentCellView(commentModel: comment)
+                        .cornerRadius(5)
+                }
+            }
+            .frame(maxWidth: UIScreen.main.bounds.width / 2)
         }
+        .frame(height: 250)
+        .padding(10)
+        .background(
+            Rectangle()
+                .foregroundColor(.indigo)
+                .cornerRadius(10)
+        )
     }
 }
 
@@ -124,11 +64,45 @@ struct UserAreaInfoView_Previews: PreviewProvider {
             userModel: UserModel(
                 userName: "hogeUser",
                 preId: 1,
-                preName: "hogePre",
+                preName: "北海道",
                 muniId: 1,
-                muniName: "hogeMuni"),
+                muniName: "札幌市"),
             rankModel: RankCellModel(rank: 1, name: "hoge", score: 4.4),
-            comments: [CommentCellModel(userName: "hogeuser2", comment: "good", score: 4.4)]
+            comments: [
+                CommentCellModel(
+                    user: UserModel(
+                        userName: "user1",
+                        preId: 1,
+                        preName: "hogepre",
+                        muniId: 1,
+                        muniName: "hogemuni"),
+                    comment: "美味しい美味しい",
+                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
+                    time: "2022-12/31-09:12"
+                ),
+                CommentCellModel(
+                    user: UserModel(
+                        userName: "user1",
+                        preId: 1,
+                        preName: "hogepre",
+                        muniId: 1,
+                        muniName: "hogemuni"),
+                    comment: "美味しい美味しい",
+                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
+                    time: "2022-12/31-09:12"
+                ),
+                CommentCellModel(
+                    user: UserModel(
+                        userName: "user1",
+                        preId: 1,
+                        preName: "hogepre",
+                        muniId: 1,
+                        muniName: "hogemuni"),
+                    comment: "美味しい美味しい",
+                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
+                    time: "2022-12/31-09:12"
+                )
+            ]
         )
     }
 }

@@ -8,7 +8,8 @@
 import Foundation
 
 struct CommentCellModel {
-    let userName: String
+    let user: UserModel
     let comment: String
-    let score: Double
+    let score: ScoreModel
+    let time: String
 }

@@ -18,37 +18,35 @@ struct CommentCellView: View {
             HStack() {
                 Image(systemName: "person")
                     .foregroundColor(.white)
-                Text(commentModel.userName)
+                Text(commentModel.user.userName)
                     .underline()
-                    .font(.headline)
                     .foregroundColor(.white)
                 Spacer()
-                Text(String(round(commentModel.score * 100) / 100))
-                    .font(.headline)
+                Text(String(round(commentModel.score.all * 100) / 100))
                     .foregroundColor(.white)
             }
             
             HStack {
                 Text(commentModel.comment)
-                    .font(.headline)
-                    .frame(maxWidth: UIScreen.main.bounds.width / 20 * 18)
                     .foregroundColor(.white)
             }
             
         }
-        .padding()
+        .padding(5)
         .background(
             Rectangle()
                 .foregroundColor(.green)
-                .cornerRadius(20)
         )
     }
 }
 
 struct CommentCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentCellView(commentModel: CommentCellModel(
-            userName: "jimpei", comment: "おいしいね", score: 2.2)
+        CommentCellView(commentModel:CommentCellModel(
+            user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
+            comment: "とても美味しいわ",
+            score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
+            time: "2022-10/4-23:33")
         )
     }
 }

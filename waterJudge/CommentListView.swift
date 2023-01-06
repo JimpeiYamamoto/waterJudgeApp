@@ -16,22 +16,42 @@ struct CommentListView: View {
         self.rankModel = rankModel
         self.commentCellModels = []
         self.commentCellModels.append(
-            CommentCellModel(userName: "hoge1", comment: "うまい", score: 1.2)
+            CommentCellModel(
+                user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
+                comment: "とても美味しいわ",
+                score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
+                time: "2022-10/4-23:33")
+            
         )
         self.commentCellModels.append(
-            CommentCellModel(userName: "hoge2", comment: "まずい", score: 4.8)
+            CommentCellModel(
+                user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
+                comment: "とても美味しいわ",
+                score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
+                time: "2022-10/4-23:33")
+            
         )
         self.commentCellModels.append(
-            CommentCellModel(userName: "hoge3", comment: "ちょっと臭いね", score: 3.2)
+            CommentCellModel(
+                user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
+                comment: "とても美味しいわ",
+                score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
+                time: "2022-10/4-23:33")
+            
         )
         self.commentCellModels.append(
-            CommentCellModel(userName: "hoge4", comment: "なんじゃこりゃ", score: 4.9)
+            CommentCellModel(
+                user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
+                comment: "とても美味しいわ",
+                score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
+                time: "2022-10/4-23:33")
+            
         )
     }
     
     var body: some View {
         ScrollView {
-            ForEach(commentCellModels, id: \.self.userName) { model in
+            ForEach(commentCellModels, id: \.self.user.userName) { model in
                 CommentCellView(commentModel: model)
             }
         }

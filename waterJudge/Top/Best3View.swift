@@ -17,23 +17,19 @@ struct Best3View: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .font(.title)
+                .font(.title3)
                 .underline()
                 .foregroundColor(.white)
-                .padding()
             RankCellView(rankModel: rank1Model)
-                .padding()
             RankCellView(rankModel: rank2Model)
-                .padding()
             RankCellView(rankModel: rank3Model)
-                .padding()
         }
+        .frame(height: 95)
         .padding()
         .background(
             Rectangle()
                 .foregroundColor(.brown)
-                .cornerRadius(20)
-                .frame(maxWidth: UIScreen.main.bounds.width / 20 * 19)
+                .cornerRadius(10)
         )
     }
 }

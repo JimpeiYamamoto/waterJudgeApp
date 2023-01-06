@@ -31,6 +31,8 @@
 		73043973296549BD005BE71D /* UserPrefectureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043972296549BD005BE71D /* UserPrefectureRow.swift */; };
 		73043975296549D7005BE71D /* UserMunicipalityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043974296549D7005BE71D /* UserMunicipalityRow.swift */; };
 		7322A1BA2965C627008743F2 /* VoteSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1B92965C627008743F2 /* VoteSliderView.swift */; };
+		7322A1BD296810C7008743F2 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1BC296810C7008743F2 /* TimelineView.swift */; };
+		7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1BE2968146D008743F2 /* ScoreModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		73043972296549BD005BE71D /* UserPrefectureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPrefectureRow.swift; sourceTree = "<group>"; };
 		73043974296549D7005BE71D /* UserMunicipalityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMunicipalityRow.swift; sourceTree = "<group>"; };
 		7322A1B92965C627008743F2 /* VoteSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSliderView.swift; sourceTree = "<group>"; };
+		7322A1BC296810C7008743F2 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		7322A1BE2968146D008743F2 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 				73043965296062D3005BE71D /* Top */,
 				7304396A2961C777005BE71D /* Vote */,
 				7304396F296533F0005BE71D /* EditProfile */,
+				7322A1BB2968108C008743F2 /* Timeline */,
 				73043929295DD4AB005BE71D /* MainTabView.swift */,
 				73043955295EB1FE005BE71D /* CommentListView.swift */,
 				7304392B295DD4AD005BE71D /* Assets.xcassets */,
@@ -175,6 +180,7 @@
 				7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */,
 				73043963295EBD40005BE71D /* UserModel.swift */,
 				7304396D29652574005BE71D /* PrefectureModel.swift */,
+				7322A1BE2968146D008743F2 /* ScoreModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +222,14 @@
 				73043974296549D7005BE71D /* UserMunicipalityRow.swift */,
 			);
 			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		7322A1BB2968108C008743F2 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				7322A1BC296810C7008743F2 /* TimelineView.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +368,7 @@
 				7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */,
 				73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */,
 				73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */,
+				7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */,
 				73043956295EB1FE005BE71D /* CommentListView.swift in Sources */,
 				7304396729606302005BE71D /* UserAreaInfoView.swift in Sources */,
 				730439692961C6AF005BE71D /* Best3View.swift in Sources */,
@@ -362,6 +377,7 @@
 				73043954295DD9E9005BE71D /* VoteView.swift in Sources */,
 				7304395C295EB3F4005BE71D /* RankCellView.swift in Sources */,
 				73043928295DD4AB005BE71D /* waterJudgeApp.swift in Sources */,
+				7322A1BD296810C7008743F2 /* TimelineView.swift in Sources */,
 				7304395E295EB650005BE71D /* CommentCellView.swift in Sources */,
 				73043975296549D7005BE71D /* UserMunicipalityRow.swift in Sources */,
 				73043959295EB25A005BE71D /* RankCellModel.swift in Sources */,

@@ -14,11 +14,18 @@ struct MainTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             
-            TopView()
+            HomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
-                    Text("Top")
+                    Text("ホーム")
                 }
+            
+            TimelineView()
+                .tabItem {
+                    Image(systemName: "text.line.first.and.arrowtriangle.forward")
+                    Text("タイムライン")
+                }
+            
             
             VoteView()
                 .tabItem {
