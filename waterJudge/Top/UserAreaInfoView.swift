@@ -9,41 +9,9 @@ import SwiftUI
 
 struct UserAreaInfoView: View {
     
-    let userModel: UserModel
-    let rankModel: RankCellModel
-    var comments: [CommentCellModel]
-    
-    init() {
-        // TODO: UserDefaultからロードする
-        if let user = fetchUser() {
-            self.userModel = user
-        } else {
-            self.userModel = UserModel(
-                userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
-            )
-        }
-        
-        self.rankModel = RankCellModel(
-            rank: 18, name: "神奈川県", score: 4.4)
-        
-        // TODO: DBからフェッチする
-        self.comments = []
-        self.comments.append(
-            CommentCellModel(
-                userName: "hoge1", comment: "美味しいね", score: 2.2
-            )
-        )
-        self.comments.append(
-            CommentCellModel(
-                userName: "hoge2", comment: "まず...", score: 4.2
-            )
-        )
-        self.comments.append(
-            CommentCellModel(
-                userName: "hoge3", comment: "げぼおおお", score: 3.2
-            )
-        )
-    }
+    @State var userModel: UserModel
+    @State var rankModel: RankCellModel
+    @State var comments: [CommentCellModel]
     
     var body: some View {
         ZStack {
@@ -99,19 +67,51 @@ struct UserAreaInfoView: View {
                             .padding()
                     }
                 }
-                
-                Text("最新のコメント")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .underline()
-                    .frame(
-                        maxWidth: UIScreen.main.bounds.width / 5 * 4,
-                        alignment: .leading
+                .onAppear {
+                    if let user = fetchUser() {
+                        self.userModel = user
+                    } else {
+                        self.userModel = UserModel(
+                            userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
+                        )
+                    }
+                    self.rankModel = RankCellModel(
+                        rank: 18, name: "神奈川県", score: 4.4
                     )
-                    .padding()
-                ForEach(comments, id: \.self.userName) { comment in
-                    CommentCellView(commentModel: comment)
-                        .frame(maxWidth: UIScreen.main.bounds.width / 5 * 4)
+                }
+                
+                VStack {
+                    Text("最新のコメント")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .underline()
+                        .frame(
+                            maxWidth: UIScreen.main.bounds.width / 5 * 4,
+                            alignment: .leading
+                        )
+                        .padding()
+                    ForEach(comments, id: \.self.userName) { comment in
+                        CommentCellView(commentModel: comment)
+                            .frame(maxWidth: UIScreen.main.bounds.width / 5 * 4)
+                    }
+                }
+                .onAppear {
+                    self.comments = []
+                    self.comments.append(
+                        CommentCellModel(
+                            userName: "hoge1", comment: "美味しいね", score: 2.2
+                        )
+                    )
+                    self.comments.append(
+                        CommentCellModel(
+                            userName: "hoge2", comment: "まず...", score: 4.2
+                        )
+                    )
+                    self.comments.append(
+                        CommentCellModel(
+                            userName: "hoge3", comment: "げぼおおお", score: 3.2
+                        )
+                    )
                 }
             }
         }
@@ -120,6 +120,15 @@ struct UserAreaInfoView: View {
 
 struct UserAreaInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        UserAreaInfoView()
+        UserAreaInfoView(
+            userModel: UserModel(
+                userName: "hogeUser",
+                preId: 1,
+                preName: "hogePre",
+                muniId: 1,
+                muniName: "hogeMuni"),
+            rankModel: RankCellModel(rank: 1, name: "hoge", score: 4.4),
+            comments: [CommentCellModel(userName: "hogeuser2", comment: "good", score: 4.4)]
+        )
     }
 }

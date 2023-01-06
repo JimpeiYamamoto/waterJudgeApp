@@ -9,12 +9,26 @@ import SwiftUI
 
 struct TopView: View {
     
+    @State var userModel: UserModel
+    @State var rankModel: RankCellModel
+    @State var comments: [CommentCellModel]
+    
+    init() {
+        self.userModel = fetchUser()!
+        self.rankModel = RankCellModel(rank: 1, name: "hoge", score: 3.8)
+        self.comments = [CommentCellModel(userName: "hoge", comment: "hogehoge", score: 3.22)]
+    }
+    
     var body: some View {
         
         NavigationView{
             ScrollView {
                 
-                UserAreaInfoView()
+                UserAreaInfoView(
+                    userModel: userModel,
+                    rankModel: rankModel,
+                    comments: comments
+                )
                 
                 Best3View(
                     title: "神奈川県内ランキング",
@@ -37,7 +51,7 @@ struct TopView: View {
                 
             }
             .navigationTitle("2022-12/29")
-            .navigationBarItems(trailing:Button(action: {
+            .navigationBarItems(leading:Button(action: {
             }, label: {
                 NavigationLink {
                     EditUserInfoView()
@@ -49,8 +63,6 @@ struct TopView: View {
         }
     }
 }
-
-
 
 struct TopView_Previews: PreviewProvider {
     static var previews: some View {

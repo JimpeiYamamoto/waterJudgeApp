@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VoteView: View {
     
-    private var user: UserModel?
+    @State private var user: UserModel?
     @FocusState var focus:Bool
     @State var inputComment = ""
     
@@ -37,7 +37,6 @@ struct VoteView: View {
                         .frame(height: UIScreen.main.bounds.height / 8)
                         .focused(self.$focus)
                 }
-        
             }
             .listStyle(.plain)
             .navigationTitle("2022-12/29")
@@ -47,6 +46,15 @@ struct VoteView: View {
             }, label: {
                 Text("投票")
             }))
+            .onAppear {
+                if let fetchUser = fetchUser() {
+                    self.user = fetchUser
+                } else {
+                    self.user = UserModel(
+                        userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
+                    )
+                }
+            }
         }
     }
     
