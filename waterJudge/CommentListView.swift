@@ -10,7 +10,7 @@ import SwiftUI
 struct CommentListView: View {
     
     let rankModel: RankModel
-    var commentCellModels: [CommentCellModel]
+    var commentCellModels: [VoteModel]
     
     init(rankModel: RankModel) {
         self.rankModel = rankModel
@@ -18,7 +18,7 @@ struct CommentListView: View {
         
         // TODO: DBからフェッチ
         self.commentCellModels.append(
-            CommentCellModel(
+            VoteModel(
                 user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
                 comment: "とても美味しいわ",
                 score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
@@ -26,7 +26,7 @@ struct CommentListView: View {
             
         )
         self.commentCellModels.append(
-            CommentCellModel(
+            VoteModel(
                 user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
                 comment: "とても美味しいわ",
                 score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
@@ -34,7 +34,7 @@ struct CommentListView: View {
             
         )
         self.commentCellModels.append(
-            CommentCellModel(
+            VoteModel(
                 user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
                 comment: "とても美味しいわ",
                 score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
@@ -42,7 +42,7 @@ struct CommentListView: View {
             
         )
         self.commentCellModels.append(
-            CommentCellModel(
+            VoteModel(
                 user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
                 comment: "とても美味しいわ",
                 score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),

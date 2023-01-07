@@ -9,33 +9,56 @@ import SwiftUI
 
 struct RankCellView: View {
     
-    let rankModel: RankModel
+    let showRank: Int
+    let allRank: AllRankModel
     
     var body: some View {
-        HStack {
-            Text("\(rankModel.rank).")
-                .foregroundColor(.white)
-            Text("\(rankModel.name)")
-                .foregroundColor(.white)
-            Spacer()
-            Text("\(String(round(rankModel.score * 100) / 100))")
-                .foregroundColor(.white)
-            Button {
-            } label: {
-                NavigationLink(
-                    // TODO: メッセージボタンを押した後の挙動は未定義
-                    //destination: CommentListView(rankModel: rankModel),
-                    destination: EmptyView(),
-                    label: {
-                        Image(systemName: "ellipsis.message.fill")
-                    })
+        HStack(alignment:.center) {
+            Text("\(showRank) 位")
+                .font(.title3)
+                .padding()
+                .background(
+                    Capsule()
+                        .stroke()
+                )
+            
+            VStack(alignment: .leading) {
+                Text(allRank.name)
+                    .font(.headline)
+                    .padding(.horizontal)
+                    .padding(.vertical, 10)
+                Text("総合：\(doubleToString(num: allRank.allRank.score))")
+                        .padding(.leading)
+                        .padding(.bottom, 2)
+                Text(scoreLabel())
+                        .padding(.leading)
+                        .padding(.bottom, 5)
             }
         }
+    }
+    
+    func doubleToString(num: Double) -> String {
+        return String(round(num * 100)/100)
+    }
+    
+    func scoreLabel() ->String {
+        let tasteScore = doubleToString(num: allRank.tasteRank.score)
+        let smellScore = doubleToString(num: allRank.smellRank.score)
+        let colorScore = doubleToString(num: allRank.colorRank.score)
+        return "味:\(tasteScore)  におい:\(smellScore)  色:\(colorScore)"
     }
 }
 
 struct RankCellView_Previews: PreviewProvider {
     static var previews: some View {
-        RankCellView(rankModel: RankModel(name: "和歌山県", score: 3.3, rank: 22))
+        RankCellView(showRank: 1,
+                     allRank: AllRankModel(
+                        name: "東京都",
+                        allRank: RankModel(name: "東京都", score: 3.3, rank: 1),
+                        tasteRank: RankModel(name: "東京都", score: 2.2, rank: 4),
+                        smellRank: RankModel(name: "東京都", score: 4.42, rank: 3),
+                        colorRank: RankModel(name: "東京都", score: 5.00, rank: 1)
+                     )
+        )
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ScoreModel {
+struct ScoreModel: Codable {
     let all: Double
     let taste: Double
     let smell: Double

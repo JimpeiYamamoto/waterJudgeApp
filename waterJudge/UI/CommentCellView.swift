@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CommentCellView: View {
     
-    let commentModel: CommentCellModel
+    let commentModel: VoteModel
     
     var body: some View {
         
@@ -42,7 +42,7 @@ struct CommentCellView: View {
 
 struct CommentCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentCellView(commentModel:CommentCellModel(
+        CommentCellView(commentModel:VoteModel(
             user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
             comment: "とても美味しいわ",
             score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),

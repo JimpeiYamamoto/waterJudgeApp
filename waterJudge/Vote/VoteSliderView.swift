@@ -12,8 +12,7 @@ struct VoteSliderView: View {
     let title: String
     let maxLabel: String
     let minLabel: String
-    
-    @State var value: Double = 1
+    @Binding var value: Double
     
     var body: some View {
         HStack {
@@ -44,11 +43,5 @@ struct VoteSliderView: View {
             .padding(.trailing)
             
         }
-    }
-}
-
-struct VoteSliderView_Previews: PreviewProvider {
-    static var previews: some View {
-        VoteSliderView(title: "title", maxLabel: "max", minLabel: "min")
     }
 }

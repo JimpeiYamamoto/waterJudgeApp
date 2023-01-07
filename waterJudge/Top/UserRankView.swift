@@ -101,7 +101,6 @@ struct smallRankView: View {
             .padding(.trailing)
         }
         .padding(.vertical, 5)
-        //.frame(width: UIScreen.main.bounds.width / 7 * 2)
         .background(
             Rectangle()
                 .foregroundColor(.mint)

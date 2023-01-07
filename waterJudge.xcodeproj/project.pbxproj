@@ -20,11 +20,9 @@
 		73043959295EB25A005BE71D /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043958295EB25A005BE71D /* RankModel.swift */; };
 		7304395C295EB3F4005BE71D /* RankCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395B295EB3F4005BE71D /* RankCellView.swift */; };
 		7304395E295EB650005BE71D /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395D295EB650005BE71D /* CommentCellView.swift */; };
-		73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */; };
+		73043960295EB6BB005BE71D /* VoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395F295EB6BB005BE71D /* VoteModel.swift */; };
 		73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043961295EBBD6005BE71D /* EditUserInfoView.swift */; };
 		73043964295EBD40005BE71D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043963295EBD40005BE71D /* UserModel.swift */; };
-		7304396729606302005BE71D /* UserAreaInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304396629606302005BE71D /* UserAreaInfoView.swift */; };
-		730439692961C6AF005BE71D /* Best3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730439682961C6AE005BE71D /* Best3View.swift */; };
 		7304396C29647C79005BE71D /* prefecture.json in Resources */ = {isa = PBXBuildFile; fileRef = 7304396B29647C79005BE71D /* prefecture.json */; };
 		7304396E29652574005BE71D /* PrefectureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304396D29652574005BE71D /* PrefectureModel.swift */; };
 		730439712965493C005BE71D /* UserNameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730439702965493C005BE71D /* UserNameRow.swift */; };
@@ -70,11 +68,9 @@
 		73043958295EB25A005BE71D /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		7304395B295EB3F4005BE71D /* RankCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellView.swift; sourceTree = "<group>"; };
 		7304395D295EB650005BE71D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
-		7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellModelswift.swift; sourceTree = "<group>"; };
+		7304395F295EB6BB005BE71D /* VoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteModel.swift; sourceTree = "<group>"; };
 		73043961295EBBD6005BE71D /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
 		73043963295EBD40005BE71D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		7304396629606302005BE71D /* UserAreaInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAreaInfoView.swift; sourceTree = "<group>"; };
-		730439682961C6AE005BE71D /* Best3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Best3View.swift; sourceTree = "<group>"; };
 		7304396B29647C79005BE71D /* prefecture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prefecture.json; sourceTree = "<group>"; };
 		7304396D29652574005BE71D /* PrefectureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureModel.swift; sourceTree = "<group>"; };
 		730439702965493C005BE71D /* UserNameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameRow.swift; sourceTree = "<group>"; };
@@ -179,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				73043958295EB25A005BE71D /* RankModel.swift */,
-				7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */,
+				7304395F295EB6BB005BE71D /* VoteModel.swift */,
 				73043963295EBD40005BE71D /* UserModel.swift */,
 				7304396D29652574005BE71D /* PrefectureModel.swift */,
 				7322A1BE2968146D008743F2 /* ScoreModel.swift */,
@@ -200,8 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				73043951295DD9CF005BE71D /* TopView.swift */,
-				7304396629606302005BE71D /* UserAreaInfoView.swift */,
-				730439682961C6AE005BE71D /* Best3View.swift */,
 				73B789812969680800DDE361 /* UserRankView.swift */,
 			);
 			path = Top;
@@ -370,12 +364,10 @@
 				7322A1BA2965C627008743F2 /* VoteSliderView.swift in Sources */,
 				7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */,
 				73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */,
-				73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */,
+				73043960295EB6BB005BE71D /* VoteModel.swift in Sources */,
 				7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */,
 				73043956295EB1FE005BE71D /* CommentListView.swift in Sources */,
-				7304396729606302005BE71D /* UserAreaInfoView.swift in Sources */,
 				73B789822969680800DDE361 /* UserRankView.swift in Sources */,
-				730439692961C6AF005BE71D /* Best3View.swift in Sources */,
 				730439712965493C005BE71D /* UserNameRow.swift in Sources */,
 				73043952295DD9CF005BE71D /* TopView.swift in Sources */,
 				73043954295DD9E9005BE71D /* VoteView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimelineCellView: View {
     
-    let comment: CommentCellModel
+    let comment: VoteModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,16 +24,18 @@ struct TimelineCellView: View {
                 Text("\(comment.time)")
                     .opacity(0.5)
             }
+            .padding(.top, 10)
             
             Text(comment.comment)
-                .padding(.vertical)
+                .padding(.vertical, 5)
             HStack {
                 
-                Text("スコア \(String(round(comment.score.all * 10) / 10))")
+                Text("総合:\(String(round(comment.score.all * 10) / 10))")
                     .opacity(0.7)
-                Text("( 味:\(Int(comment.score.taste)), におい:\(Int(comment.score.smell)),色:\(Int(comment.score.color)) )")
+                Text("(味:\(Int(comment.score.taste)), におい:\(Int(comment.score.smell)),色:\(Int(comment.score.color)))")
                     .opacity(0.7)
             }
+            .padding(.bottom, 5)
         }
     }
     
@@ -41,7 +43,7 @@ struct TimelineCellView: View {
 
 struct TimelineView: View {
     
-    @State var comments: [CommentCellModel] = []
+    @State var comments: [VoteModel] = []
     
     var body: some View {
         
@@ -55,7 +57,7 @@ struct TimelineView: View {
             .refreshable {
                 // TODO: DBからフェッチする
                 self.comments.append(
-                    CommentCellModel(
+                    VoteModel(
                         user: UserModel(
                             userName: "hello", preId: 1, preName: "pre", muniId: 1, muniName: "muni"
                         ),
@@ -66,7 +68,6 @@ struct TimelineView: View {
             }
             .listStyle(.plain)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("water judge")
             .navigationBarItems(leading:Button(action: {
             }, label: {
                 NavigationLink {EditUserInfoView()} label: {Image(systemName: "person.circle.fill")}
@@ -74,7 +75,7 @@ struct TimelineView: View {
             .onAppear{
                 // TODO: DBからフェッチする
                 self.comments.append(
-                    CommentCellModel(
+                    VoteModel(
                         user: UserModel(
                             userName: "user1", preId: 1, preName: "pre", muniId: 1, muniName: "東京都 北区"
                         ),
@@ -84,7 +85,7 @@ struct TimelineView: View {
                 )
                 
                 self.comments.append(
-                    CommentCellModel(
+                    VoteModel(
                         user: UserModel(
                             userName: "user2", preId: 1, preName: "pre", muniId: 1, muniName: "muni"
                         ),
