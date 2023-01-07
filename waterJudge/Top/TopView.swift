@@ -7,16 +7,49 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
     
     @State var userModel: UserModel
-    @State var rankModel: RankCellModel
-    @State var comments: [CommentCellModel]
+    @State var preRankModel: AllRankModel
+    @State var muniRankModel: AllRankModel
     
     init() {
-        self.userModel = fetchUser()!
-        self.rankModel = RankCellModel(rank: 1, name: "hoge", score: 3.8)
-        self.comments = []
+        // TODO: Fix force unwrap
+        let user = fetchUser()!
+            
+        self.userModel = user
+        self.preRankModel = AllRankModel(
+            name: user.preName,
+            allRank: RankModel(
+                name: user.preName, score: 4.3, rank: 4
+            ),
+            tasteRank: RankModel(
+                name: user.preName, score: 4.1, rank: 11
+            ),
+            smellRank: RankModel(
+                name: user.preName, score: 4.4, rank: 2
+            ),
+            colorRank: RankModel(
+                name: user.preName, score: 4.3, rank: 3
+            )
+        )
+        
+        self.muniRankModel = AllRankModel(
+            name: user.muniName,
+            allRank: RankModel(
+                name: user.muniName, score: 4.3, rank: 4
+            ),
+            tasteRank: RankModel(
+                name: user.muniName, score: 4.1, rank: 11
+            ),
+            smellRank: RankModel(
+                name: user.muniName, score: 4.4, rank: 2
+            ),
+            colorRank: RankModel(
+                name: user.preName, score: 4.3, rank: 3
+            )
+        )
     }
     
     var body: some View {
@@ -25,138 +58,58 @@ struct HomeView: View {
             List {
                 Section("基本情報") {
                     TabView {
-                        UserAreaInfoView(
-                            userModel: userModel,
-                            rankModel: rankModel,
-                            comments: comments
-                        )
-                        .onAppear {
-                            if let user = fetchUser() {
-                                self.userModel = user
-                            } else {
-                                self.userModel = UserModel(
-                                    userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
-                                )
-                            }
-                            self.rankModel = RankCellModel(
-                                rank: 18, name: "神奈川県", score: 4.4
-                            )
-                            
-                            self.comments = []
-                            self.comments.append(
-                                CommentCellModel(
-                                    user: UserModel(
-                                        userName: "user1",
-                                        preId: 1,
-                                        preName: "hogepre",
-                                        muniId: 1,
-                                        muniName: "hogemuni"),
-                                    comment: "美味しい美味しい",
-                                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                                    time: "2022-12/31-09:12"
-                                )
-                            )
-                            self.comments.append(
-                                CommentCellModel(
-                                    user: UserModel(
-                                        userName: "user2",
-                                        preId: 1,
-                                        preName: "hogepre",
-                                        muniId: 1,
-                                        muniName: "hogemuni"),
-                                    comment: "美味しい美味しい",
-                                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                                    time: "2022-12/31-09:12"
-                                )
-                            )
-                            self.comments.append(
-                                CommentCellModel(
-                                    user: UserModel(
-                                        userName: "user3",
-                                        preId: 1,
-                                        preName: "hogepre",
-                                        muniId: 1,
-                                        muniName: "hogemuni"),
-                                    comment: "美味しい美味しい",
-                                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                                    time: "2022-12/31-09:12"
-                                )
-                            )
-                            
-                        }
                         
-                        UserAreaInfoView(
-                            userModel: userModel,
-                            rankModel: rankModel,
-                            comments: comments
-                        )
-                        .onAppear {
-                            if let user = fetchUser() {
-                                self.userModel = user
-                            } else {
-                                self.userModel = UserModel(
-                                    userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
+                        UserRankView(allRank: self.preRankModel, isPre: true)
+                            .onAppear {
+                                self.preRankModel = AllRankModel(
+                                    name: self.userModel.preName,
+                                    allRank: RankModel(
+                                        name: self.userModel.preName, score: 4.3, rank: 4
+                                    ),
+                                    tasteRank: RankModel(
+                                        name: self.userModel.preName, score: 4.1, rank: 11
+                                    ),
+                                    smellRank: RankModel(
+                                        name: self.userModel.preName, score: 4.4, rank: 2
+                                    ),
+                                    colorRank: RankModel(
+                                        name: self.userModel.preName, score: 4.3, rank: 3
+                                    )
                                 )
                             }
-                            self.rankModel = RankCellModel(
-                                rank: 18, name: "神奈川県", score: 4.4
-                            )
-                            
-                            self.comments = []
-                            self.comments.append(
-                                CommentCellModel(
-                                    user: UserModel(
-                                        userName: "user1",
-                                        preId: 1,
-                                        preName: "hogepre",
-                                        muniId: 1,
-                                        muniName: "hogemuni"),
-                                    comment: "美味しい美味しい",
-                                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                                    time: "2022-12/31-09:12"
+                        
+                        UserRankView(allRank: self.muniRankModel, isPre: false)
+                            .onAppear {
+                                self.muniRankModel = AllRankModel(
+                                    name: self.userModel.muniName,
+                                    allRank: RankModel(
+                                        name: self.userModel.muniName, score: 4.3, rank: 4
+                                    ),
+                                    tasteRank: RankModel(
+                                        name: self.userModel.muniName, score: 4.1, rank: 11
+                                    ),
+                                    smellRank: RankModel(
+                                        name: self.userModel.muniName, score: 4.4, rank: 2
+                                    ),
+                                    colorRank: RankModel(
+                                        name: self.userModel.preName, score: 4.3, rank: 3
+                                    )
                                 )
-                            )
-                            self.comments.append(
-                                CommentCellModel(
-                                    user: UserModel(
-                                        userName: "user2",
-                                        preId: 1,
-                                        preName: "hogepre",
-                                        muniId: 1,
-                                        muniName: "hogemuni"),
-                                    comment: "美味しい美味しい",
-                                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                                    time: "2022-12/31-09:12"
-                                )
-                            )
-                            self.comments.append(
-                                CommentCellModel(
-                                    user: UserModel(
-                                        userName: "user3",
-                                        preId: 1,
-                                        preName: "hogepre",
-                                        muniId: 1,
-                                        muniName: "hogemuni"),
-                                    comment: "美味しい美味しい",
-                                    score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                                    time: "2022-12/31-09:12"
-                                )
-                            )
-                            
-                        }
+                            }
                         
                         VStack {
                             Best3View(
-                                title: "\(userModel.preName)内",
-                                rank1Model: RankCellModel(rank: 1, name: "川崎市", score: 4.75),
-                                rank2Model: RankCellModel(rank: 2, name: "横浜市", score: 4.43),
-                                rank3Model: RankCellModel(rank: 3, name: "相模原市", score: 2.32)
+                                title: "ベスト3 都道府県",
+                                rank1Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                                rank2Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                                rank3Model: RankModel(name: "東京都", score: 4.87, rank: 1)
                             )
+                            
                             Best3View(
-                                title: "\(userModel.preName)内",
-                                rank1Model: RankCellModel(rank: 1, name: "川崎市", score: 4.75),
-                                rank2Model: RankCellModel(rank: 2, name: "横浜市", score: 4.43),
-                                rank3Model: RankCellModel(rank: 3, name: "相模原市", score: 2.32)
+                                title: "ベスト3 都道府県",
+                                rank1Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                                rank2Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                                rank3Model: RankModel(name: "東京都", score: 4.87, rank: 1)
                             )
                         }
                         
@@ -164,23 +117,57 @@ struct HomeView: View {
                     }
                     .tabViewStyle(PageTabViewStyle())
                     .frame(height: 270)
+                    .onAppear {
+                        if let user = fetchUser() {
+                            self.userModel = user
+                        } else {
+                            self.userModel = UserModel(
+                                userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
+                            )
+                        }
+                    }
                     
                 }
                 
                 Section("ランキング") {
-                    Best3View(
-                        title: "都道府県",
-                        rank1Model: RankCellModel(rank: 1, name: "東京都", score: 4.75),
-                        rank2Model: RankCellModel(rank: 2, name: "神奈川県", score: 4.43),
-                        rank3Model: RankCellModel(rank: 3, name: "大阪府", score: 2.32)
-                    )
+                    TabView {
+                        Best3View(
+                            title: "ベスト3 都道府県",
+                            rank1Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank2Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank3Model: RankModel(name: "東京都", score: 4.87, rank: 1)
+                        )
+                        
+                        Best3View(
+                            title: "ワースト3 都道府県",
+                            rank1Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank2Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank3Model: RankModel(name: "東京都", score: 4.87, rank: 1)
+                        )
+                        
+                    }
+                    .tabViewStyle(PageTabViewStyle())
+                    .frame(height: 135)
                     
-                    Best3View(
-                        title: "全国市区町村",
-                        rank1Model: RankCellModel(rank: 1, name: "川崎市", score: 4.75),
-                        rank2Model: RankCellModel(rank: 2, name: "八王子市", score: 4.43),
-                        rank3Model: RankCellModel(rank: 3, name: "文京区", score: 2.32)
-                    )
+                    TabView {
+                        Best3View(
+                            title: "ベスト3 市区",
+                            rank1Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank2Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank3Model: RankModel(name: "東京都", score: 4.87, rank: 1)
+                        )
+                        
+                        Best3View(
+                            title: "ワースト3 市区",
+                            rank1Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank2Model: RankModel(name: "東京都", score: 4.87, rank: 1),
+                            rank3Model: RankModel(name: "東京都", score: 4.87, rank: 1)
+                        )
+                        
+                    }
+                    .tabViewStyle(PageTabViewStyle())
+                    .frame(height: 135)
+                    
                 }
                 
             }

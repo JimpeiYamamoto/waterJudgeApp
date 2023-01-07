@@ -9,28 +9,23 @@ import SwiftUI
 
 struct RankCellView: View {
     
-    let rankModel: RankCellModel
-    
-    init(rankModel: RankCellModel) {
-        self.rankModel = rankModel
-    }
+    let rankModel: RankModel
     
     var body: some View {
         HStack {
             Text("\(rankModel.rank).")
-                .font(.headline)
                 .foregroundColor(.white)
             Text("\(rankModel.name)")
                 .foregroundColor(.white)
-                .font(.headline)
             Spacer()
             Text("\(String(round(rankModel.score * 100) / 100))")
                 .foregroundColor(.white)
-                .font(.headline)
             Button {
             } label: {
                 NavigationLink(
-                    destination: CommentListView(rankModel: rankModel),
+                    // TODO: メッセージボタンを押した後の挙動は未定義
+                    //destination: CommentListView(rankModel: rankModel),
+                    destination: EmptyView(),
                     label: {
                         Image(systemName: "ellipsis.message.fill")
                     })
@@ -41,8 +36,6 @@ struct RankCellView: View {
 
 struct RankCellView_Previews: PreviewProvider {
     static var previews: some View {
-        RankCellView(
-            rankModel: RankCellModel(rank: 1, name: "川崎市", score: 4.4)
-        )
+        RankCellView(rankModel: RankModel(name: "和歌山県", score: 3.3, rank: 22))
     }
 }

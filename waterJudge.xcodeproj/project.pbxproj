@@ -17,7 +17,7 @@
 		73043952295DD9CF005BE71D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043951295DD9CF005BE71D /* TopView.swift */; };
 		73043954295DD9E9005BE71D /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043953295DD9E9005BE71D /* VoteView.swift */; };
 		73043956295EB1FE005BE71D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043955295EB1FE005BE71D /* CommentListView.swift */; };
-		73043959295EB25A005BE71D /* RankCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043958295EB25A005BE71D /* RankCellModel.swift */; };
+		73043959295EB25A005BE71D /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043958295EB25A005BE71D /* RankModel.swift */; };
 		7304395C295EB3F4005BE71D /* RankCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395B295EB3F4005BE71D /* RankCellView.swift */; };
 		7304395E295EB650005BE71D /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395D295EB650005BE71D /* CommentCellView.swift */; };
 		73043960295EB6BB005BE71D /* CommentCellModelswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */; };
@@ -33,6 +33,7 @@
 		7322A1BA2965C627008743F2 /* VoteSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1B92965C627008743F2 /* VoteSliderView.swift */; };
 		7322A1BD296810C7008743F2 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1BC296810C7008743F2 /* TimelineView.swift */; };
 		7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1BE2968146D008743F2 /* ScoreModel.swift */; };
+		73B789822969680800DDE361 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B789812969680800DDE361 /* UserRankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,7 @@
 		73043951295DD9CF005BE71D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		73043953295DD9E9005BE71D /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		73043955295EB1FE005BE71D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
-		73043958295EB25A005BE71D /* RankCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellModel.swift; sourceTree = "<group>"; };
+		73043958295EB25A005BE71D /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		7304395B295EB3F4005BE71D /* RankCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellView.swift; sourceTree = "<group>"; };
 		7304395D295EB650005BE71D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 		7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellModelswift.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		7322A1B92965C627008743F2 /* VoteSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSliderView.swift; sourceTree = "<group>"; };
 		7322A1BC296810C7008743F2 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		7322A1BE2968146D008743F2 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
+		73B789812969680800DDE361 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +178,7 @@
 		73043957295EB249005BE71D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73043958295EB25A005BE71D /* RankCellModel.swift */,
+				73043958295EB25A005BE71D /* RankModel.swift */,
 				7304395F295EB6BB005BE71D /* CommentCellModelswift.swift */,
 				73043963295EBD40005BE71D /* UserModel.swift */,
 				7304396D29652574005BE71D /* PrefectureModel.swift */,
@@ -200,6 +202,7 @@
 				73043951295DD9CF005BE71D /* TopView.swift */,
 				7304396629606302005BE71D /* UserAreaInfoView.swift */,
 				730439682961C6AE005BE71D /* Best3View.swift */,
+				73B789812969680800DDE361 /* UserRankView.swift */,
 			);
 			path = Top;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */,
 				73043956295EB1FE005BE71D /* CommentListView.swift in Sources */,
 				7304396729606302005BE71D /* UserAreaInfoView.swift in Sources */,
+				73B789822969680800DDE361 /* UserRankView.swift in Sources */,
 				730439692961C6AF005BE71D /* Best3View.swift in Sources */,
 				730439712965493C005BE71D /* UserNameRow.swift in Sources */,
 				73043952295DD9CF005BE71D /* TopView.swift in Sources */,
@@ -380,7 +384,7 @@
 				7322A1BD296810C7008743F2 /* TimelineView.swift in Sources */,
 				7304395E295EB650005BE71D /* CommentCellView.swift in Sources */,
 				73043975296549D7005BE71D /* UserMunicipalityRow.swift in Sources */,
-				73043959295EB25A005BE71D /* RankCellModel.swift in Sources */,
+				73043959295EB25A005BE71D /* RankModel.swift in Sources */,
 				73043973296549BD005BE71D /* UserPrefectureRow.swift in Sources */,
 				73043964295EBD40005BE71D /* UserModel.swift in Sources */,
 			);

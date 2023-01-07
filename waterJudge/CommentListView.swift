@@ -9,12 +9,14 @@ import SwiftUI
 
 struct CommentListView: View {
     
-    let rankModel: RankCellModel
+    let rankModel: RankModel
     var commentCellModels: [CommentCellModel]
     
-    init(rankModel: RankCellModel) {
+    init(rankModel: RankModel) {
         self.rankModel = rankModel
         self.commentCellModels = []
+        
+        // TODO: DBからフェッチ
         self.commentCellModels.append(
             CommentCellModel(
                 user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
@@ -62,11 +64,7 @@ struct CommentListView: View {
 struct CommentListView_Previews: PreviewProvider {
     static var previews: some View {
         CommentListView(
-            rankModel: RankCellModel(
-                rank: 1,
-                name: "神奈川県",
-                score: 4.2
-            )
+            rankModel: RankModel(name: "神奈川県横浜市", score: 3.8, rank: 237)
         )
     }
 }
