@@ -28,11 +28,13 @@ struct RankCellView: View {
                     .padding(.horizontal)
                     .padding(.vertical, 10)
                 Text("総合：\(doubleToString(num: allRank.allRank.score))")
-                        .padding(.leading)
-                        .padding(.bottom, 2)
+                    .padding(.leading)
+                    .padding(.bottom, 2)
                 Text(scoreLabel())
-                        .padding(.leading)
-                        .padding(.bottom, 5)
+                    .font(.callout)
+                    .opacity(0.7)
+                    .padding(.leading)
+                    .padding(.bottom, 5)
             }
         }
     }

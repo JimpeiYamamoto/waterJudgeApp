@@ -16,7 +16,6 @@
 		73043945295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */; };
 		73043952295DD9CF005BE71D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043951295DD9CF005BE71D /* TopView.swift */; };
 		73043954295DD9E9005BE71D /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043953295DD9E9005BE71D /* VoteView.swift */; };
-		73043956295EB1FE005BE71D /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043955295EB1FE005BE71D /* CommentListView.swift */; };
 		73043959295EB25A005BE71D /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73043958295EB25A005BE71D /* RankModel.swift */; };
 		7304395C295EB3F4005BE71D /* RankCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395B295EB3F4005BE71D /* RankCellView.swift */; };
 		7304395E295EB650005BE71D /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7304395D295EB650005BE71D /* CommentCellView.swift */; };
@@ -32,6 +31,7 @@
 		7322A1BD296810C7008743F2 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1BC296810C7008743F2 /* TimelineView.swift */; };
 		7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322A1BE2968146D008743F2 /* ScoreModel.swift */; };
 		73B789822969680800DDE361 /* UserRankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B789812969680800DDE361 /* UserRankView.swift */; };
+		73B9CFDB296B05F500FA38EF /* TimelineCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9CFDA296B05F500FA38EF /* TimelineCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		73043944295DD4AE005BE71D /* waterJudgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterJudgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		73043951295DD9CF005BE71D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		73043953295DD9E9005BE71D /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
-		73043955295EB1FE005BE71D /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		73043958295EB25A005BE71D /* RankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		7304395B295EB3F4005BE71D /* RankCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCellView.swift; sourceTree = "<group>"; };
 		7304395D295EB650005BE71D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		7322A1BE2968146D008743F2 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 		7388546B296A9F9000021BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73B789812969680800DDE361 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
+		73B9CFDA296B05F500FA38EF /* TimelineCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +141,6 @@
 				7304396F296533F0005BE71D /* EditProfile */,
 				7322A1BB2968108C008743F2 /* Timeline */,
 				73043929295DD4AB005BE71D /* MainTabView.swift */,
-				73043955295EB1FE005BE71D /* CommentListView.swift */,
 				7304392B295DD4AD005BE71D /* Assets.xcassets */,
 				7304392D295DD4AD005BE71D /* Preview Content */,
 			);
@@ -227,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				7322A1BC296810C7008743F2 /* TimelineView.swift */,
+				73B9CFDA296B05F500FA38EF /* TimelineCellView.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -365,10 +365,10 @@
 				7304396E29652574005BE71D /* PrefectureModel.swift in Sources */,
 				7322A1BA2965C627008743F2 /* VoteSliderView.swift in Sources */,
 				7304392A295DD4AB005BE71D /* MainTabView.swift in Sources */,
+				73B9CFDB296B05F500FA38EF /* TimelineCellView.swift in Sources */,
 				73043962295EBBD6005BE71D /* EditUserInfoView.swift in Sources */,
 				73043960295EB6BB005BE71D /* VoteModel.swift in Sources */,
 				7322A1BF2968146D008743F2 /* ScoreModel.swift in Sources */,
-				73043956295EB1FE005BE71D /* CommentListView.swift in Sources */,
 				73B789822969680800DDE361 /* UserRankView.swift in Sources */,
 				730439712965493C005BE71D /* UserNameRow.swift in Sources */,
 				73043952295DD9CF005BE71D /* TopView.swift in Sources */,

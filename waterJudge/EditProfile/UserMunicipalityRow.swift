@@ -20,22 +20,13 @@ struct UserMunicipalityRow: View {
                     width: UIScreen.main.bounds.width / 5,
                     alignment: .leading
                 )
-            Picker(midToName(id: selectedMId), selection: $selectedMId) {
+            Picker(midToName(id: selectedMId, municipalities: self.municipalities), selection: $selectedMId) {
                 ForEach(municipalities, id: \.mid) { municipality in
                     Text(municipality.name).tag(municipality.mid)
                 }
             }
         }
         
-    }
-    
-    func midToName(id: Int) -> String {
-        for municipality in self.municipalities {
-            if municipality.mid == id {
-                return municipality.name
-            }
-        }
-        return "未選択"
     }
     
 }

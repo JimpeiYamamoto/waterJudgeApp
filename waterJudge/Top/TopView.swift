@@ -31,13 +31,14 @@ struct TopView: View {
     @State var muniRankings: [AllRankModel] = []
     
     @State var date: String = ""
+    @State var isShowEditProfile: Bool = false
     
     var body: some View {
         
         NavigationView{
             List {
 
-                Section("あなたの居住地") {
+                Section("\(userModel.userName) さんの居住地") {
                     TabView {
                         RankCellView(
                             showRank: self.preRankModel.allRank.rank,
@@ -85,15 +86,6 @@ struct TopView: View {
                     }
                     .frame(height: 180)
                     .tabViewStyle(PageTabViewStyle())
-                    .onAppear {
-                        if let user = fetchUser() {
-                            self.userModel = user
-                        } else {
-                            self.userModel = UserModel(
-                                userId: 1, userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
-                            )
-                        }
-                    }
                 }
                 
                 Section {
@@ -256,7 +248,6 @@ struct TopView: View {
                         }
                     }
                 }
-                
             }
             .onAppear {
                 let dateFormatter = DateFormatter()
@@ -274,16 +265,42 @@ struct TopView: View {
             .listStyle(.plain)
             .navigationTitle(self.date)
             .navigationBarItems(leading:Button(action: {
+                isShowEditProfile = true
             }, label: {
-                NavigationLink {
-                    EditUserInfoView()
-                } label: {
                     Image(systemName: "person.circle.fill")
-                }
-
             }))
             
         }
+        .sheet(
+            isPresented: $isShowEditProfile,
+            onDismiss: {
+                setUser()
+            },
+            content: {EditUserInfoView()}
+        )
+        .onAppear{
+            setUser()
+            // 最初の起動の場合
+            if isFirstLaunch() {
+                isShowEditProfile = true
+            }
+        }
+    }
+    
+    func setUser() {
+        let user = fetchUser() ?? UserModel(
+            userId: 1, userName: "user1", preId: 1, preName: "pre", muniId: 1, muniName: "mun"
+        )
+        self.userModel = user
+    }
+    
+    func isFirstLaunch() -> Bool {
+        let key = "isFirstLaunch"
+        if (UserDefaults.standard.bool(forKey: key) == false) {
+            UserDefaults.standard.set(true, forKey: key)
+            return true
+        }
+        return false
     }
     
     func fetchRanking() {

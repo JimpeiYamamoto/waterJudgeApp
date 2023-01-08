@@ -27,14 +27,6 @@ struct MainTabView: View {
                     Text("タイムライン")
                 }
                 .tag(1)
-            
-            
-            VoteView()
-                .tabItem {
-                    Image(systemName: "highlighter")
-                    Text("投票")
-                }
-                .tag(2)
         }
     }
 }

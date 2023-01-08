@@ -28,3 +28,12 @@ struct MunicipalitlyModel: Decodable {
     let mid: Int
     let name: String
 }
+
+func midToName(id: Int, municipalities: [MunicipalitlyModel]) -> String {
+    for municipality in municipalities {
+        if municipality.mid == id {
+            return municipality.name
+        }
+    }
+    return ""
+}

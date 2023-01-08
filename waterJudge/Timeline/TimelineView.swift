@@ -7,115 +7,125 @@
 
 import SwiftUI
 
-struct TimelineCellView: View {
-    
-    let comment: VoteModel
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            
-            HStack {
-                Image(systemName: "person.circle.fill")
-                Text(comment.user.userName)
-                    .font(.headline)
-                    .underline()
-                Text("(\(comment.user.muniName))")
-                Spacer()
-                Text("\(comment.time)")
-                    .opacity(0.5)
-            }
-            .padding(.top, 10)
-            
-            Text(comment.comment)
-                .padding(.vertical, 5)
-            HStack {
-                
-                Text("総合:\(String(round(comment.score.all * 10) / 10))")
-                    .opacity(0.7)
-                Text("(味:\(Int(comment.score.taste)), におい:\(Int(comment.score.smell)),色:\(Int(comment.score.color)))")
-                    .opacity(0.7)
-            }
-            .padding(.bottom, 5)
-        }
-    }
-    
-}
-
 struct TimelineView: View {
     
     @State var comments: [VoteModel] = []
     
+    @State var isShowVoteView: Bool = false
+    @State var isShowEditUserView: Bool = false
+    
     var body: some View {
         
         NavigationView{
-            List {
-                ForEach(comments, id: \.voteId) { comment in
-                    // TODO: １つの投稿を表示する
-                    TimelineCellView(comment: comment)
+            ZStack {
+                List {
+                    ForEach(comments, id: \.voteId) { comment in
+                        // TODO: １つの投稿を表示する
+                        TimelineCellView(comment: comment)
+                    }
                 }
-            }
-            .refreshable {
-                // TODO: DBからフェッチする
-                self.comments.append(
-                    VoteModel(
-                        voteId: Int.random(in: 5..<100000),
-                        user: UserModel(
-                            userId: 1,
-                            userName: "hello",
-                            preId: 1,
-                            preName: "pre",
-                            muniId: 1,
-                            muniName: "muni"
-                        ),
-                        comment: "good water for me",
-                        score: ScoreModel(taste: 2.0, smell: 2.0, color: 3.0),
-                        time: "2022-10/4-23:09")
-                )
-            }
-            .listStyle(.plain)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading:Button(action: {
-            }, label: {
-                NavigationLink {EditUserInfoView()} label: {Image(systemName: "person.circle.fill")}
-            }))
-            .onAppear{
-                // TODO: DBからフェッチする
-                self.comments = [
-                    VoteModel(
-                        voteId: 1,
-                        user: UserModel(
-                            userId: 1,
-                            userName: "user1",
-                            preId: 1,
-                            preName: "pre",
-                            muniId: 1,
-                            muniName: "東京都 北区"
-                        ),
-                        comment: "hoeghogehohgeo good water for me",
-                        score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                        time: "2022-10/4-23:09"
-                    )
-                    ,
-                    VoteModel(
-                        voteId: 2,
-                        user: UserModel(
-                            userId: 2,
-                            userName: "user2",
-                            preId: 1,
-                            preName: "pre",
-                            muniId: 1,
-                            muniName: "muni"
-                        ),
-                        comment: "good water for me hogehogehogheoheohgeohoehgoehgoehgoehgeohoehgoehoehoegoeheohgeoh",
-                        score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                        time: "2022-10/4-23:09"
-                    )
-                ]
+                .refreshable {
+                    // TODO: DBからフェッチする
+                    refreshComments()
+                }
+                .listStyle(.plain)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(leading:Button(action: {
+                    isShowEditUserView.toggle()
+                }, label: {
+                    Image(systemName: "person.circle.fill")
+                }))
+                .onAppear{
+                    // TODO: DBからフェッチする
+                    fetchComments()
+                }
+                .sheet(isPresented: $isShowEditUserView, content: {EditUserInfoView()})
                 
-                
+                VoteButtonView(isShow: $isShowVoteView)
+                    .sheet(isPresented: $isShowVoteView, content: {VoteView()})
+            }
+            
+        }
+    }
+    
+    func fetchComments() {
+        self.comments = [
+            VoteModel(
+                voteId: 1,
+                user: UserModel(
+                    userId: 1,
+                    userName: "太郎",
+                    preId: 1,
+                    preName: "東京都",
+                    muniId: 1,
+                    muniName: "東京都港区"
+                ),
+                comment: "においもなく、とてもすっきりとした味わいです。美味しかった",
+                score: ScoreModel(taste: 4.0, smell: 5.0, color: 4.0),
+                time: "2023-1/4-23:09"
+            )
+            ,
+            VoteModel(
+                voteId: 2,
+                user: UserModel(
+                    userId: 2,
+                    userName: "花子",
+                    preId: 1,
+                    preName: "神奈川県",
+                    muniId: 1,
+                    muniName: "神奈川県川崎市"
+                ),
+                comment: "ちょっと塩素臭が気になりました。しっかりと消毒されていることが確認できるので安心できます。透明感もあるので悪くありません。",
+                score: ScoreModel(taste: 3.0, smell: 2.0, color: 5.0),
+                time: "2023-1/3-10:31"
+            )
+        ]
+    }
+    
+    func refreshComments() {
+        self.comments.append(
+            VoteModel(
+                voteId: Int.random(in: 5..<100000),
+                user: UserModel(
+                    userId: 1,
+                    userName: "hello",
+                    preId: 1,
+                    preName: "pre",
+                    muniId: 1,
+                    muniName: "muni"
+                ),
+                comment: "good water for me",
+                score: ScoreModel(taste: 2.0, smell: 2.0, color: 3.0),
+                time: "2022-10/4-23:09")
+        )
+    }
+}
+
+struct VoteButtonView: View{
+    
+    @Binding var isShow: Bool
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack(alignment: .trailing) {
+                Spacer()
+                Button {
+                    isShow.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .padding()
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .background(
+                            Capsule()
+                                .foregroundColor(.indigo)
+                        )
+                }
+                .padding()
             }
         }
-        
+        .padding()
     }
 }
 
