@@ -79,6 +79,7 @@
 		7322A1B92965C627008743F2 /* VoteSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSliderView.swift; sourceTree = "<group>"; };
 		7322A1BC296810C7008743F2 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		7322A1BE2968146D008743F2 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
+		7388546B296A9F9000021BF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		73B789812969680800DDE361 /* UserRankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +131,7 @@
 		73043926295DD4AB005BE71D /* waterJudge */ = {
 			isa = PBXGroup;
 			children = (
+				7388546B296A9F9000021BF4 /* Info.plist */,
 				7304396B29647C79005BE71D /* prefecture.json */,
 				73043927295DD4AB005BE71D /* waterJudgeApp.swift */,
 				73043957295EB249005BE71D /* Model */,
@@ -540,7 +542,7 @@
 				DEVELOPMENT_TEAM = G9JXCB7X2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = waterJudge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -569,7 +571,7 @@
 				DEVELOPMENT_TEAM = G9JXCB7X2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = waterJudge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -19,12 +19,14 @@ struct MainTabView: View {
                     Image(systemName: "house.fill")
                     Text("ホーム")
                 }
+                .tag(0)
             
             TimelineView()
                 .tabItem {
                     Image(systemName: "text.line.first.and.arrowtriangle.forward")
                     Text("タイムライン")
                 }
+                .tag(1)
             
             
             VoteView()
@@ -32,6 +34,7 @@ struct MainTabView: View {
                     Image(systemName: "highlighter")
                     Text("投票")
                 }
+                .tag(2)
         }
     }
 }

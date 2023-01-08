@@ -9,102 +9,28 @@ import SwiftUI
 
 struct TopView: View {
     
-    @State var userModel: UserModel
-    @State var preRankModel: AllRankModel
-    @State var muniRankModel: AllRankModel
+    @State var userModel: UserModel = UserModel(
+        userId: 1, userName: "", preId: 0, preName: "", muniId: 0, muniName: ""
+    )
+    @State var preRankModel: AllRankModel = AllRankModel(
+        name: "",
+        allRank: RankModel(name: "", score: 0.0, rank: 0),
+        tasteRank: RankModel(name: "", score: 0.0, rank: 0),
+        smellRank: RankModel(name: "", score: 0.0, rank: 0),
+        colorRank: RankModel(name: "", score: 0.0, rank: 0)
+    )
+    @State var muniRankModel: AllRankModel = AllRankModel(
+        name: "",
+        allRank: RankModel(name: "", score: 0.0, rank: 0),
+        tasteRank: RankModel(name: "", score: 0.0, rank: 0),
+        smellRank: RankModel(name: "", score: 0.0, rank: 0),
+        colorRank: RankModel(name: "", score: 0.0, rank: 0)
+    )
     
-    @State var preRankings: [AllRankModel]
-    @State var muniRankings: [AllRankModel]
+    @State var preRankings: [AllRankModel] = []
+    @State var muniRankings: [AllRankModel] = []
     
     @State var date: String = ""
-    
-    init() {
-        // TODO: Fetch from DB
-        self.preRankings = [
-            AllRankModel(
-                name: "富山県",
-                allRank: RankModel(name: "富山県", score: 4.99, rank: 1),
-                tasteRank: RankModel(name: "富山県", score: 4.88, rank: 1),
-                smellRank: RankModel(name: "富山県", score: 4.76, rank: 1),
-                colorRank: RankModel(name: "富山県", score: 4.80, rank: 1)
-            ),
-            AllRankModel(
-                name: "山梨県",
-                allRank: RankModel(name: "山梨県", score: 4.99, rank: 2),
-                tasteRank: RankModel(name: "山梨県", score: 4.88, rank: 2),
-                smellRank: RankModel(name: "山梨県", score: 4.76, rank: 2),
-                colorRank: RankModel(name: "山梨県", score: 4.80, rank: 2)
-            ),
-            AllRankModel(
-                name: "青森県",
-                allRank: RankModel(name: "青森県", score: 4.99, rank: 3),
-                tasteRank: RankModel(name: "青森県", score: 4.88, rank: 3),
-                smellRank: RankModel(name: "青森県", score: 4.76, rank: 3),
-                colorRank: RankModel(name: "青森県", score: 4.80, rank: 3)
-            )
-            
-        ]
-        self.muniRankings = [
-            AllRankModel(
-                name: "富山県富士市",
-                allRank: RankModel(name: "富山県富士市", score: 4.99, rank: 1),
-                tasteRank: RankModel(name: "富山県富士市", score: 4.88, rank: 1),
-                smellRank: RankModel(name: "富山県富士市", score: 4.76, rank: 1),
-                colorRank: RankModel(name: "富山県富士市", score: 4.80, rank: 1)
-            ),
-            AllRankModel(
-                name: "山梨県甲府市",
-                allRank: RankModel(name: "山梨県甲府市", score: 4.99, rank: 2),
-                tasteRank: RankModel(name: "山梨県甲府市", score: 4.88, rank: 2),
-                smellRank: RankModel(name: "山梨県甲府市", score: 4.76, rank: 2),
-                colorRank: RankModel(name: "山梨県甲府市", score: 4.80, rank: 2)
-            ),
-            AllRankModel(
-                name: "青森県盛岡市",
-                allRank: RankModel(name: "青森県盛岡市", score: 4.99, rank: 3),
-                tasteRank: RankModel(name: "青森県盛岡市", score: 4.88, rank: 3),
-                smellRank: RankModel(name: "青森県盛岡市", score: 4.76, rank: 3),
-                colorRank: RankModel(name: "青森県盛岡市", score: 4.80, rank: 3)
-            )
-        ]
-        
-        // TODO: Fix force unwrap
-        let user = fetchUser() ?? UserModel(
-            userName: "user1", preId: 1, preName: "pre", muniId: 1, muniName: "mun"
-        )
-        self.userModel = user
-        self.preRankModel = AllRankModel(
-            name: user.preName,
-            allRank: RankModel(
-                name: user.preName, score: 4.3, rank: 4
-            ),
-            tasteRank: RankModel(
-                name: user.preName, score: 4.1, rank: 11
-            ),
-            smellRank: RankModel(
-                name: user.preName, score: 4.4, rank: 2
-            ),
-            colorRank: RankModel(
-                name: user.preName, score: 4.3, rank: 3
-            )
-        )
-        
-        self.muniRankModel = AllRankModel(
-            name: user.muniName,
-            allRank: RankModel(
-                name: user.muniName, score: 4.3, rank: 120
-            ),
-            tasteRank: RankModel(
-                name: user.muniName, score: 4.1, rank: 110
-            ),
-            smellRank: RankModel(
-                name: user.muniName, score: 4.4, rank: 273
-            ),
-            colorRank: RankModel(
-                name: user.preName, score: 4.3, rank: 329
-            )
-        )
-    }
     
     var body: some View {
         
@@ -164,7 +90,7 @@ struct TopView: View {
                             self.userModel = user
                         } else {
                             self.userModel = UserModel(
-                                userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
+                                userId: 1, userName: "", preId: 1, preName: "", muniId: 1, muniName: ""
                             )
                         }
                     }
@@ -340,6 +266,10 @@ struct TopView: View {
                     locale: Locale(identifier: "ja_JP")
                 )
                 self.date = dateFormatter.string(from: Date())
+                
+                // TODO: DB からフェッチする
+                fetchRanking()
+                
             }
             .listStyle(.plain)
             .navigationTitle(self.date)
@@ -354,6 +284,57 @@ struct TopView: View {
             }))
             
         }
+    }
+    
+    func fetchRanking() {
+        
+        self.preRankings = [
+            AllRankModel(
+                name: "富山県",
+                allRank: RankModel(name: "富山県", score: 4.99, rank: 1),
+                tasteRank: RankModel(name: "富山県", score: 4.88, rank: 1),
+                smellRank: RankModel(name: "富山県", score: 4.76, rank: 1),
+                colorRank: RankModel(name: "富山県", score: 4.80, rank: 1)
+            ),
+            AllRankModel(
+                name: "山梨県",
+                allRank: RankModel(name: "山梨県", score: 4.99, rank: 2),
+                tasteRank: RankModel(name: "山梨県", score: 4.88, rank: 2),
+                smellRank: RankModel(name: "山梨県", score: 4.76, rank: 2),
+                colorRank: RankModel(name: "山梨県", score: 4.80, rank: 2)
+            ),
+            AllRankModel(
+                name: "青森県",
+                allRank: RankModel(name: "青森県", score: 4.99, rank: 3),
+                tasteRank: RankModel(name: "青森県", score: 4.88, rank: 3),
+                smellRank: RankModel(name: "青森県", score: 4.76, rank: 3),
+                colorRank: RankModel(name: "青森県", score: 4.80, rank: 3)
+            )
+
+        ]
+        self.muniRankings = [
+            AllRankModel(
+                name: "富山県富士市",
+                allRank: RankModel(name: "富山県富士市", score: 4.99, rank: 1),
+                tasteRank: RankModel(name: "富山県富士市", score: 4.88, rank: 1),
+                smellRank: RankModel(name: "富山県富士市", score: 4.76, rank: 1),
+                colorRank: RankModel(name: "富山県富士市", score: 4.80, rank: 1)
+            ),
+            AllRankModel(
+                name: "山梨県甲府市",
+                allRank: RankModel(name: "山梨県甲府市", score: 4.99, rank: 2),
+                tasteRank: RankModel(name: "山梨県甲府市", score: 4.88, rank: 2),
+                smellRank: RankModel(name: "山梨県甲府市", score: 4.76, rank: 2),
+                colorRank: RankModel(name: "山梨県甲府市", score: 4.80, rank: 2)
+            ),
+            AllRankModel(
+                name: "青森県盛岡市",
+                allRank: RankModel(name: "青森県盛岡市", score: 4.99, rank: 3),
+                tasteRank: RankModel(name: "青森県盛岡市", score: 4.88, rank: 3),
+                smellRank: RankModel(name: "青森県盛岡市", score: 4.76, rank: 3),
+                colorRank: RankModel(name: "青森県盛岡市", score: 4.80, rank: 3)
+            )
+        ]
     }
 }
 

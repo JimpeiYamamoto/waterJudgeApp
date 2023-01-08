@@ -11,15 +11,12 @@ struct EditUserInfoView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State var userId: Int = 1
     @State var userName: String = ""
     @State var userPrefectureId: Int = 10
     @State var userMunicipalityId: Int = 0
     
-    var prefecturesModel: [PrefectureModel]
-   
-    init() {
-        self.prefecturesModel = decodePreJson()
-    }
+    let prefecturesModel: [PrefectureModel] = decodePreJson()
     
     var body: some View {
         VStack {
@@ -41,6 +38,7 @@ struct EditUserInfoView: View {
             .listStyle(.plain)
             .onAppear {
                 if let fetchuser = fetchUser() {
+                    userId = fetchuser.userId
                     userName = fetchuser.userName
                     userPrefectureId = fetchuser.preId
                     userMunicipalityId = fetchuser.muniId
@@ -54,6 +52,7 @@ struct EditUserInfoView: View {
             presentationMode.wrappedValue.dismiss()
             
             saveUser(user: UserModel(
+                userId: 1,
                 userName: userName,
                 preId: userPrefectureId,
                 preName: prefecturesModel[userPrefectureId-1].name,

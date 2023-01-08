@@ -9,6 +9,7 @@ import Foundation
 
 struct VoteModel: Codable {
     
+    let voteId: Int
     let user: UserModel
     let comment: String
     let score: ScoreModel

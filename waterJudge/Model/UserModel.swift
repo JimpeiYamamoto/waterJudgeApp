@@ -9,6 +9,7 @@ import Foundation
 
 struct UserModel: Codable{
     
+    let userId: Int
     let userName: String
     let preId: Int
     let preName: String

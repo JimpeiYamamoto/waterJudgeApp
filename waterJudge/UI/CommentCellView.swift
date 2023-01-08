@@ -42,8 +42,17 @@ struct CommentCellView: View {
 
 struct CommentCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentCellView(commentModel:VoteModel(
-            user: UserModel(userName: "hoge1", preId: 1, preName: "pre", muniId: 1, muniName: "muni"),
+        CommentCellView(
+            commentModel:VoteModel(
+                voteId: 1,
+                user: UserModel(
+                    userId: 1,
+                    userName: "hoge1",
+                    preId: 1,
+                    preName: "pre",
+                    muniId: 1,
+                    muniName: "muni"
+                ),
             comment: "とても美味しいわ",
             score: ScoreModel(taste: 3.0, smell: 4.0, color: 1.0),
             time: "2022-10/4-23:33")

@@ -49,7 +49,7 @@ struct TimelineView: View {
         
         NavigationView{
             List {
-                ForEach(comments, id: \.user.userName) { comment in
+                ForEach(comments, id: \.voteId) { comment in
                     // TODO: １つの投稿を表示する
                     TimelineCellView(comment: comment)
                 }
@@ -58,8 +58,14 @@ struct TimelineView: View {
                 // TODO: DBからフェッチする
                 self.comments.append(
                     VoteModel(
+                        voteId: Int.random(in: 5..<100000),
                         user: UserModel(
-                            userName: "hello", preId: 1, preName: "pre", muniId: 1, muniName: "muni"
+                            userId: 1,
+                            userName: "hello",
+                            preId: 1,
+                            preName: "pre",
+                            muniId: 1,
+                            muniName: "muni"
                         ),
                         comment: "good water for me",
                         score: ScoreModel(taste: 2.0, smell: 2.0, color: 3.0),
@@ -74,25 +80,39 @@ struct TimelineView: View {
             }))
             .onAppear{
                 // TODO: DBからフェッチする
-                self.comments.append(
+                self.comments = [
                     VoteModel(
+                        voteId: 1,
                         user: UserModel(
-                            userName: "user1", preId: 1, preName: "pre", muniId: 1, muniName: "東京都 北区"
+                            userId: 1,
+                            userName: "user1",
+                            preId: 1,
+                            preName: "pre",
+                            muniId: 1,
+                            muniName: "東京都 北区"
                         ),
                         comment: "hoeghogehohgeo good water for me",
                         score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                        time: "2022-10/4-23:09")
-                )
-                
-                self.comments.append(
+                        time: "2022-10/4-23:09"
+                    )
+                    ,
                     VoteModel(
+                        voteId: 2,
                         user: UserModel(
-                            userName: "user2", preId: 1, preName: "pre", muniId: 1, muniName: "muni"
+                            userId: 2,
+                            userName: "user2",
+                            preId: 1,
+                            preName: "pre",
+                            muniId: 1,
+                            muniName: "muni"
                         ),
                         comment: "good water for me hogehogehogheoheohgeohoehgoehgoehgoehgeohoehgoehoehoegoeheohgeoh",
                         score: ScoreModel(taste: 1.0, smell: 2.0, color: 3.0),
-                        time: "2022-10/4-23:09")
-                )
+                        time: "2022-10/4-23:09"
+                    )
+                ]
+                
+                
             }
         }
         
